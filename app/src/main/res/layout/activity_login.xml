@@ -25,10 +25,11 @@
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="665dp"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
         app:layout_constraintVertical_bias="0.0">
@@ -37,53 +38,67 @@
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:src="@drawable/message_icon"/>
+            android:src="@drawable/message_icon" />
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
             android:layout_marginTop="20dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginEnd="30dp"
             app:boxStrokeColor="?attr/colorPrimary"
             app:hintTextColor="?attr/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextEmailLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
                 android:hint="Email"
-                android:textColorHint="?attr/colorPrimary"
+                android:inputType="textEmailAddress"
                 android:textColor="?attr/colorPrimary"
-                android:id="@+id/editTextEmailLogin"/>
+                android:textColorHint="?attr/colorPrimary" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
             android:layout_marginTop="10dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginEnd="30dp"
             app:boxStrokeColor="?attr/colorPrimary"
-            app:hintTextColor="?attr/colorPrimary"
-            app:endIconMode="password_toggle">
+            app:endIconMode="password_toggle"
+            app:hintTextColor="?attr/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPasswordLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
                 android:hint="Password"
-                android:textColorHint="?attr/colorPrimary"
+                android:inputType="textPassword"
                 android:textColor="?attr/colorPrimary"
-                android:id="@+id/editTextPasswordLogin"/>
+                android:textColorHint="?attr/colorPrimary" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Button
+            android:id="@+id/ButtonLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="Login" />
 
-
+        <TextView
+            android:id="@+id/textViewSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/account"
+            android:textSize="15sp"
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
