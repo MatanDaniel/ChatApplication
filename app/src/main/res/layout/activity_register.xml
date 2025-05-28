@@ -2,16 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainLogin"
-    android:background="?attr/colorOnPrimary"
+    android:id="@+id/mainRegister"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/appBarLayoutLogin"
+        android:id="@+id/appBarLayoutRegister"
         android:background="?attr/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,12 +19,12 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:id="@+id/toolbarLogin"
+            android:id="@+id/toolbarRegister"
             app:title="Chat App"
-            app:subtitle="Login to Chat"
+            app:subtitle="Register to Chat"
             app:titleTextColor="?attr/colorOnPrimary"
-            app:subtitleTextColor="?attr/colorOnPrimary"/>
-
+            app:subtitleTextColor="?attr/colorOnPrimary"
+            app:navigationIcon="@drawable/arrow_back"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
@@ -33,22 +32,57 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayoutLogin"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/message_icon"/>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:shapeAppearanceOverlay="@style/roundedProfileImage"
+            app:strokeColor="?attr/colorPrimary"
+            app:strokeWidth="2dp"
+            android:padding="5dp"
+            android:src="@drawable/default_profile_photo"
+            android:id="@+id/imageViewProfielRegister"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap on the image to choose profile picture"
+            android:textColor="?attr/colorPrimary">
+
+        </TextView>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="?attr/colorPrimary"
+            app:hintTextColor="?attr/colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="User name"
+                android:textColorHint="?attr/colorPrimary"
+                android:textColor="?attr/colorPrimary"
+                android:id="@+id/editTextUserNameRegister"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="10dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:boxStrokeColor="?attr/colorPrimary"
             app:hintTextColor="?attr/colorPrimary">
@@ -60,7 +94,7 @@
                 android:hint="Email"
                 android:textColorHint="?attr/colorPrimary"
                 android:textColor="?attr/colorPrimary"
-                android:id="@+id/editTextEmailLogin"/>
+                android:id="@+id/editTextEmailSignup"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,45 +116,38 @@
                 android:hint="Password"
                 android:textColorHint="?attr/colorPrimary"
                 android:textColor="?attr/colorPrimary"
-                android:id="@+id/editTextPasswordLogin"/>
+                android:id="@+id/editTextPasswordSignup"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
+
+
         <Button
-            android:id="@+id/buttonLogin"
+            android:id="@+id/buttonSignup"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="75dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="75dp"
-            android:onClick="loginClicked"
-            android:text="Login"
+            android:text="Sign up"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="20sp" />
-
-        <TextView
+        
+        <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:id="@+id/textViewSignup"
-            android:text="@string/account"
-            android:textColor="?attr/colorPrimary"
-            android:textSize="20sp"/>
+            android:id="@+id/progressBarSignup"
+            android:layout_marginTop="16dp"
+            android:indeterminate="?attr/colorPrimary"
+            android:visibility="invisible"/>
+
 
 
     </LinearLayout>
 
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-
-
-
-
-

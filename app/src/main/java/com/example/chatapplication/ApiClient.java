@@ -2,9 +2,11 @@ package com.example.chatapplication;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.Response;
+
 
 public class ApiClient {
-    private static final String BASE_URL = "http://your-api-url.com/api/"; // Change this
+    private static final String BASE_URL = "http://10.0.2.2:8080/"; // Change this
     private static Retrofit retrofit;
 
     public static Retrofit getRetrofit() {
@@ -16,4 +18,6 @@ public class ApiClient {
         }
         return retrofit;
     }
+
+
 }
