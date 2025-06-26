@@ -2,15 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainRegister"
+    android:id="@+id/mainUpdateProfile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loginpages.RegisterActivity">
+    tools:context=".views.UpdateProfileActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/appBarLayoutRegister"
+        android:id="@+id/appBarLayoutUpdateProfile"
         android:background="?attr/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,9 +19,8 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:id="@+id/toolbarRegister"
-            app:title="Chat App"
-            app:subtitle="Register to Chat"
+            android:id="@+id/toolbarUpdateProfile"
+            app:title="Update Profile"
             app:titleTextColor="?attr/colorOnPrimary"
             app:subtitleTextColor="?attr/colorOnPrimary"
             app:navigationIcon="@drawable/arrow_back"/>
@@ -32,22 +31,21 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayoutRegister"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayoutUpdateProfile"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             app:shapeAppearanceOverlay="@style/roundedProfileImage"
             app:strokeColor="?attr/colorPrimary"
             app:strokeWidth="2dp"
             android:padding="5dp"
             android:src="@drawable/default_profile_photo"
-            android:id="@+id/imageViewProfielRegister"
+            android:id="@+id/imageViewProfielUpdateProfile"
             />
 
         <TextView
@@ -63,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="50dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:boxStrokeColor="?attr/colorPrimary"
             app:hintTextColor="?attr/colorPrimary">
@@ -75,71 +73,25 @@
                 android:hint="User name"
                 android:textColorHint="?attr/colorPrimary"
                 android:textColor="?attr/colorPrimary"
-                android:id="@+id/editTextUserNameRegister"/>
+                android:id="@+id/editTextUserNameUpdateProfile"/>
 
         </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="10dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeColor="?attr/colorPrimary"
-            app:hintTextColor="?attr/colorPrimary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="Email"
-                android:textColorHint="?attr/colorPrimary"
-                android:textColor="?attr/colorPrimary"
-                android:id="@+id/editTextEmailSignup"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="10dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeColor="?attr/colorPrimary"
-            app:hintTextColor="?attr/colorPrimary"
-            app:endIconMode="password_toggle">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Password"
-                android:textColorHint="?attr/colorPrimary"
-                android:textColor="?attr/colorPrimary"
-                android:id="@+id/editTextPasswordSignup"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
         <Button
-            android:id="@+id/buttonSignup"
+            android:id="@+id/buttonUpdateProfile"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="75dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="75dp"
-            android:text="Sign up"
+            android:text="Update"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="20sp" />
-        
+
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/progressBarSignup"
+            android:id="@+id/progressBarUpdateProfile"
             android:layout_marginTop="16dp"
             android:indeterminate="?attr/colorPrimary"
             android:visibility="invisible"/>

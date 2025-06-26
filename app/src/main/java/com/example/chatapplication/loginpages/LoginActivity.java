@@ -1,5 +1,6 @@
-package com.example.chatapplication;
+package com.example.chatapplication.loginpages;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -7,14 +8,18 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+import com.example.chatapplication.LoginResponse;
+import com.example.chatapplication.R;
 import com.example.chatapplication.databinding.ActivityLoginBinding;
+import com.example.chatapplication.models.ApiClient;
+import com.example.chatapplication.models.LoginRequest;
+import com.example.chatapplication.models.UserApi;
+import com.example.chatapplication.views.MainActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -38,9 +43,40 @@ public class LoginActivity extends AppCompatActivity {
             if(email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please enter your email and password", Toast.LENGTH_SHORT).show();
             } else {
+                LoginRequest loginRequest = new LoginRequest(email, password);
+                UserApi userApi = ApiClient.getClient().create(UserApi.class);
+
+                userApi.login(loginRequest).enqueue(new Callback<LoginResponse>() {
+                    @Override
+                    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            // ✅ Save session
+                            getSharedPreferences("user_session", MODE_PRIVATE)
+                                    .edit()
+                                    .putString("email", email)
+                                    .apply();
+
+                            // ✅ Navigate to MainActivity
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Login failed: " + response.message(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<LoginResponse> call, Throwable t) {
+                        Toast.makeText(LoginActivity.this, "Network error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
 
 
             }
+        });
+        loginBinding.textViewSignup.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
         });
     }
     public void loginClicked(View view){
@@ -57,6 +93,8 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
     }
+
+
 //    private void performLoginRequest(String email, String password) {
 //        UserApi userApi = ApiClient.getClient().create(UserApi.class);
 //
